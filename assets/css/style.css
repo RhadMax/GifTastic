@@ -1,8 +1,19 @@
 .inputter {
     width: 120px;
+    height: 60px;
     overflow: hidden;
 }
 #input-field, #limit-field {
     background-color: rgba(255, 235, 205, 0.644);
     
+}
+.gif-styling {
+    width: 40%;
+    /* height: 350px; */
+    border: 2px solid rgb(143, 143, 143);
+    margin: 15px;
+}
+
+body {
+    background-color: black;
 }

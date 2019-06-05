@@ -2,24 +2,32 @@
 var searchItem = "";
 var queryUrl = "";
 var limit = 25;
+var inputs = ["Randy Marsh", "Butters Scotch", "Kevin Broflowski", "Eric Cartman", "Stan Marsh", "Kenny McCormick", "Mysterion", "The Coon", "Mr. Garrison", "Mr. Hanky"]
 //write function for button creation
 function makeButton() {
-    //create jQuery button element attached to a variable
+    $(".dropBar").empty();
+    for (var i = 0; i < inputs.length; i++) {
+        //create jQuery button element attached to a variable
+        var newButton = $("<button>");
+        //get value of text entry field and save in a variable
+        // var inputText = $("#input-field").val();    ---adjusted line after realizing we were meant to use array to make buttons
+        //assign a class to new button element
+        newButton.addClass("btn btn-outline-success inputter");
+        //assign text from input field to new button
+        newButton.text(inputs[i]);
 
-    //get value of text entry field and save in a variable
-
-    //assign a class to new button element
-
-    //check for total number of buttons on screen
-
-    //remove oldest button
+        //add new button to navbar
+        $(".dropBar").append(newButton);
+        console.log("ran makeButton");
+    }
 }
+makeButton();
 //write function for making requests to API
 function apiCall() {
-    searchItem = $("#input-field").val();
-    limit = $("limit-field").val() || 25;
-    // queryURL = "https://api.giphy.com/v1/gifs/search?api_key=HymDtSMDP3XMnzv3jHIaujnzNnqgYTbT&q=" + searchItem + "&limit=" + limit + "&offset=0&lang=en"
-    queryURL = "https://api.giphy.com/v1/gifs/search?api_key=HymDtSMDP3XMnzv3jHIaujnzNnqgYTbT&q=randy marsh&limit=25&offset=0&rating=G&lang=en"
+    searchItem = $(this).val();
+    limit = $("#limit-field").val() || 25;
+    queryURL = "https://api.giphy.com/v1/gifs/search?api_key=HymDtSMDP3XMnzv3jHIaujnzNnqgYTbT&q=" + searchItem + "&limit=" + limit + "&offset=0&lang=en"
+    // queryURL = "https://api.giphy.com/v1/gifs/search?api_key=HymDtSMDP3XMnzv3jHIaujnzNnqgYTbT&q=randy marsh&limit=25&offset=0&rating=G&lang=en"
     $.ajax({
         url: queryURL,
         method: "GET"
@@ -40,17 +48,27 @@ function apiCall() {
         }
     });
 }
-apiCall(); // testing apiCall
+// apiCall(); // testing apiCall
 //write on click block targeting document and buttons by class
 
-    //update variable with search input to name from button clicked
+//update variable with search input to name from button clicked
 
-    //update queryUrl so it contains current name
+//update queryUrl so it contains current name
 
-    //run api call function
+//run api call function
 
 //write on click block for button creation button (lol)
-
+$("#adder").on("click", function () {
     //run button creation function
+    console.log("clicked adder");
+    //check for total number of buttons on screen
+    if (inputs.length > 13) {
+        inputs.shift();
+    }
+    //remove oldest button
 
+    inputs.push($("#input-field").val());
+    makeButton();
     //clear text input field
+    $("#input-field").val("");
+});
