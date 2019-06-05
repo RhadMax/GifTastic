@@ -40,12 +40,23 @@ function apiCall() {
         //write for loop that goes through response data
         for (var i = 0; i < limit; i++) {
             //create dynamic jQuery elements
+            var gifBox =$("<div>");
             var gif = $("<img>");
+            var gifTitle = $("<div>");
+            var gifRating = $("<div>");
             //assign classes to new elements:
+            gifTitle.addClass("card-header");
+            gifRating.addClass("card-footer text-muted");
+            gifBox.addClass("card text-center");
             gif.addClass("gifs");
+            //collect variables from API for rating and title inputs
+            var ratingText = data[i].rating;
+            var titleText = data[i].title;
+            gifRating.text("Rated: " + ratingText.toUpperCase());
+            gifTitle.text(titleText);
             //collect variables from API response for still and animate positions
-            var still = data[i].images.original_still.url;
-            var animated = data[i].images.original.url;
+            var still = data[i].images.fixed_width_still.url;
+            var animated = data[i].images.fixed_width.url;
             gif.attr("data-still", still);
             gif.attr("data-animate", animated);
             //set conditions for starting state based on select dropdown
@@ -57,7 +68,8 @@ function apiCall() {
                 gif.attr("data-state", "animate");
             }
             //append new elements to page
-            $(".dropBox").append(gif);
+            gifBox.append(gifTitle, gif, gifRating);
+            $(".dropBox").append(gifBox);
         }
     });
 }
