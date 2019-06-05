@@ -14,26 +14,38 @@
 
 <body>
     <nav class="navbar navbar-dark bg-dark">
-        <!-- <form class="form-inline"> -->
-        <div class="container">
-            <div class="row">
-                <div class="col-sm-12 dropBar">
-                </div>
-            </div>
-
-            <div class="row">
-                <div class="col-sm-12">
-                    <button id="adder" class="btn btn-outline-success" type="button">Add!</button>
-                    <input id="input-field" type="text" name="FirstName" value="" placeholder="What do you feel like?"><br>
-                    <button id="limit-set" class="btn btn-outline-success" type="button">Set how many results:</button>
-                    <input id="limit-field" type="text" name="LastName" value="" size=3 placeholder="25"><br>
-                    
-                </div>
-            </div>
+        <div class="container dropBar">
         </div>
-        <!-- </form> -->
     </nav>
-    <div class = "container dropBox">
+    <nav class="navbar navbar-dark bg-dark">
+        <div class="container">
+                <button id="adder" class="btn btn-outline-success" type="button">Add!</button>
+                <input id="input-field" type="text" name="FirstName" value="" size=30 placeholder="What do you feel like seeing?">
+                <button class="btn btn-outline-success" type="button">Results:</button>
+                <!-- <input id="limit-field" type="text" name="LastName" value="" size=3 placeholder="10"> -->
+                <select id="limit-select">
+                        <option value="10">10</option>
+                        <option value="15">15</option>
+                        <option value="20">20</option>
+                        <option value="25">25</option>
+                      </select>
+                <button class="btn btn-outline-success">Rating:</button>
+                <select id="rating-select">
+                  <option value="G">G</option>
+                  <option value="PG">PG</option>
+                  <option value="PG-13">PG-13</option>
+                  <option value="R">R</option>
+                </select>
+                <button class="btn btn-outline-success">Still or Gifs?</button>
+                <select id="motion-select">
+                  <option value="still">Still</option>
+                  <option value="animated">Gif</option>
+                </select>
+        </div>
+    </nav>
+
+
+    <div class="container dropBox">
 
     </div>
     <script src="assets/javascript/app.js"></script>

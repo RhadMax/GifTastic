@@ -2,12 +2,16 @@
     width: 120px;
     height: 60px;
     overflow: hidden;
+    margin: 5px;
 }
-#input-field, #limit-field {
+#adder, #limit-set {
+    margin: 5px;
+}
+#input-field, #limit-field, option, select {
     background-color: rgba(255, 235, 205, 0.644);
     
 }
-.gif-styling {
+.gifs {
     width: 40%;
     /* height: 350px; */
     border: 2px solid rgb(143, 143, 143);
