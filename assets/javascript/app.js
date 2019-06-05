@@ -5,6 +5,7 @@ var limit = 10;
 var rating = "G";
 var startingMotion = "still";
 var inputs = ["Randy Marsh", "Butters Scotch", "Kyle Broflovski", "Eric Cartman", "Stan Marsh", "Kenny McCormick", "Mysterion", "Mr. Garrison", "Mr. Hanky"]
+var toggleDisplay = false;
 //write function for button creation
 function makeButton() {
     $(".dropBar").empty();
@@ -40,7 +41,7 @@ function apiCall() {
         //write for loop that goes through response data
         for (var i = 0; i < limit; i++) {
             //create dynamic jQuery elements
-            var gifBox =$("<div>");
+            var gifBox = $("<div>");
             var gif = $("<img>");
             var gifTitle = $("<div>");
             var gifRating = $("<div>");
@@ -55,8 +56,10 @@ function apiCall() {
             gifRating.text("Rated: " + ratingText.toUpperCase());
             gifTitle.text(titleText);
             //collect variables from API response for still and animate positions
+            var bigGif = data[i].images.original.url;
             var still = data[i].images.fixed_width_still.url;
             var animated = data[i].images.fixed_width.url;
+            gif.attr("data-big", bigGif);
             gif.attr("data-still", still);
             gif.attr("data-animate", animated);
             //set conditions for starting state based on select dropdown
@@ -106,14 +109,29 @@ $("#adder").on("click", function () {
     //clear text input field
     $("#input-field").val("");
 });
-
-$(document).on("click", ".gifs", function() {
-    var state = $(this).attr("data-state");
-    if (state === "still") {
-      $(this).attr("src", $(this).attr("data-animate"));
-      $(this).attr("data-state", "animate");
-    } else {
-      $(this).attr("src", $(this).attr("data-still"));
-      $(this).attr("data-state", "still");
+$(document).on("click", ".bigDisplay", function () {
+    if (toggleDisplay) {
+        toggledisplay = false;
+        $(".bigDisplay").toggle();
     }
-  });
+});
+$(document).on("click", ".gifs", function () {
+    var state = $(this).attr("data-state");
+    var bigGifDisplay = $(this).attr("data-big");
+    var bigGifHolder = $("<img>");
+    bigGifHolder.addClass("bigGif")
+    bigGifHolder.attr("src", bigGifDisplay);
+    toggleDisplay = true;
+    $(".bigDisplay").empty();
+    $(".bigDisplay").append(bigGifHolder);
+    $(".bigDisplay").toggle();
+    if (state === "still") {
+        $(this).attr("src", $(this).attr("data-animate"));
+        $(this).attr("data-state", "animate");
+    } else {
+        $(this).attr("src", $(this).attr("data-still"));
+        $(this).attr("data-state", "still");
+    }
+});
+
+

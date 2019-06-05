@@ -34,3 +34,24 @@ body {
 div {
     color: whitesmoke
 }
+
+.bigDisplay {
+    display: none;
+    position: fixed;
+    width: 100%;
+    top: 10%;
+    background-color: rgba(0, 0, 0, 0.514);
+    border: 2px solid rgb(143, 143, 143);
+    padding: 50px;
+    margin-left: 5%;
+}
+
+.bigGif {
+ width: 100%;   
+}
+
+@media screen and (max-width: 574px) {
+.bigDisplay {
+    margin-left: 0;
+}
+}
