@@ -1,0 +1,46 @@
+Goal is to create a page with buttons as examples that also has a text entry field to enter a string of text and another button that can make new buttons containing said string. When either the example buttons or any buttons created by the user are pressed, the page will request the giphy API for any gifs with the corresponding text as a search input, and then populate them on the page.
+
+Extra ideas to include: Use bootstrap to make buttons appear as a navbar along the top, maybe with a limit to the number of buttons so if more are added the oldest button is removed. Gifs should prepend but may just instead have the content empty out on click so page doesn't get too clunky. Also would be nice to make the gifs appear inside of styled containers like divs with styling either via bootstrap or hardcoded css so that images have same dimensions on the page and possibly some borders etc to prevent it being too rough on the eyes.
+
+Pseudo Code:
+
+//declare needed variables
+
+//write function for button creation
+
+    //create jQuery button element attached to a variable
+
+    //get value of text entry field and save in a variable
+
+    //assign a class to new button element
+
+    //check for total number of buttons on screen
+    
+    //remove oldest button
+
+//write function for making requests to API
+
+    //write for loop that goes through response data
+
+        //create dynamic jQuery elements
+
+        //assign classes to new elements:
+            //src and url from API response
+
+            //class for description purposes/styling purposes
+
+        //append new elements to page
+
+//write on click block targeting document and buttons by class
+
+    //update variable with search input to name from button clicked
+
+    //update queryUrl so it contains current name
+
+    //run api call function
+
+//write on click block for button creation button (lol)
+
+    //run button creation function
+
+    //clear text input field
