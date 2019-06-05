@@ -1,0 +1,8 @@
+.inputter {
+    width: 120px;
+    overflow: hidden;
+}
+#input-field, #limit-field {
+    background-color: rgba(255, 235, 205, 0.644);
+    
+}
