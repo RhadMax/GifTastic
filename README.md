@@ -4,3 +4,4 @@ This is a homework assignment given during the fourth week of class at the UCSD 
 
 This exercise will help cement our knowledge of making API calls as well as the nuances of using the object notation we are returned to populate a webpage. It also may be a bit of fun seeing some silly memeworthy moments.
 
+To view the app on github pages use this link: RhadMax.github.io/Giftastic
